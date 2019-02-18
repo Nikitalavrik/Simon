@@ -67,14 +67,12 @@ void        free_node(t_memlist *node)
 
 void        replace_node(t_memlist *old_node, t_memlist *new_node)
 {
-
     new_node->next = old_node->next;
     new_node->prev = old_node->prev;
     if (old_node->prev)
         old_node->prev->next = new_node;
     if (old_node->next)
         old_node->next->prev = new_node;
-    see_mem("repl");
     free_node(old_node);
 }
 

@@ -18,7 +18,7 @@ typedef struct	s_memlist
 	struct	s_memlist *prev;
 }				t_memlist;
 
-void			see_mem(char *debug_tool);
+void			mem_dump(char *debug_tool);
 void			*mem_alloc(size_t size);
 void			*mem_realloc(void *addr, size_t size);
 void			mem_free(void *addr);
