@@ -8,6 +8,8 @@ OBJ_DIR = obj
 SRC = 	main.c			\
 		dlink_list.c	\
 		mem_alloc.c		\
+		mem_free.c		\
+		mem_realloc.c
 
 SRCS = $(addprefix $(SRC_DIR)/,$(SRC))
 

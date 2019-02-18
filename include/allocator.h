@@ -6,21 +6,29 @@
 # include <strings.h>
 # include <stdlib.h>
 
+# define ABS(x) ((x < 0) ? -x : x)
+
 typedef struct	s_memlist
 {
-	void	*data;
-	size_t	addr;
+	size_t	number;
+	void	*addr;
+	size_t	is_free;
 	size_t	size;
 	struct	s_memlist *next;
 	struct	s_memlist *prev;
 }				t_memlist;
 
+void			see_mem(char *debug_tool);
 void			*mem_alloc(size_t size);
 void			*mem_realloc(void *addr, size_t size);
 void			mem_free(void *addr);
-void			init_mem(size_t size);
-t_memlist    	*create_node(size_t addr, size_t size);
+void			del_node(t_memlist *node);
+void        	replace_node(t_memlist *old_node, t_memlist *new_node);
+
+t_memlist   	*find_node(void *addr);
+t_memlist    	*create_node(size_t size, size_t needfill);
 t_memlist    	*add_node(size_t size);
+t_memlist		*find_free(size_t size);
 t_memlist		*g_mem;
 
 #endif
