@@ -5,7 +5,7 @@ void	mem_dump(char *debug_tool)
 	t_memlist	*begin;
 
 	begin = g_mem;
-	printf("--------- %s --------\n", debug_tool);
+	printf("\n--------- %s --------\n", debug_tool);
 	while (begin)
 	{
 		printf("size: %3li  addr: %p  %s  \n",
@@ -20,9 +20,6 @@ int     main()
 	char		*data;
 	void		*addr;
 
-	data = NULL;
-	addr = NULL;
-	choice = 0;
 	while (1)
 	{
 		printf("\n1.Add memory block\n2.Delete memory block\n3.Realloc memory block\n");
