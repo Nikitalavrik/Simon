@@ -7,6 +7,7 @@
 # include <stdlib.h>
 
 # define ABS(x) ((x < 0) ? -x : x)
+# define VIRTUAL_SIZE 1024
 
 typedef struct	s_memlist
 {
@@ -18,12 +19,14 @@ typedef struct	s_memlist
 	struct	s_memlist *prev;
 }				t_memlist;
 
-void			mem_dump(char *debug_tool);
+int     		testing(size_t count);
 void			*mem_alloc(size_t size);
 void			*mem_realloc(void *addr, size_t size);
 void			mem_free(void *addr);
 void			del_node(t_memlist *node);
 void        	replace_node(t_memlist *old_node, t_memlist *new_node);
+void			init_mem(size_t size);
+void			mem_dump();
 
 t_memlist   	*find_node(void *addr);
 t_memlist    	*create_node(size_t size, size_t needfill);

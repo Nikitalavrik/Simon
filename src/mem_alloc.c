@@ -17,12 +17,13 @@ void	*mem_alloc(size_t size)
     }
     if (ret = find_free(size))
     {
-        ret->addr = calloc(size, sizeof(void));
+        ret->addr = malloc(size * sizeof(void));
         ret->is_free = 0;
         if (ABS(ret->size - size))
         {
             new_node = create_node(ABS(ret->size - size), 0);
-            ret->next->prev = new_node;
+            if (ret->next)
+                ret->next->prev = new_node;
             new_node->prev = ret;
             new_node->next = ret->next;
             ret->next = new_node;

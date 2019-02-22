@@ -9,7 +9,9 @@ SRC = 	main.c			\
 		dlink_list.c	\
 		mem_alloc.c		\
 		mem_free.c		\
-		mem_realloc.c
+		mem_realloc.c	\
+		init_mem.c		\
+		testing.c
 
 SRCS = $(addprefix $(SRC_DIR)/,$(SRC))
 

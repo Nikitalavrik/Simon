@@ -8,7 +8,7 @@ t_memlist    *create_node(size_t size, size_t needfill)
         return (NULL);
 
     node->size = size;
-    node->addr = needfill ? calloc(size, sizeof(void)) : NULL;
+    node->addr = needfill ? malloc(size * sizeof(void)) : NULL;
     node->is_free = !needfill;
     node->next = NULL;
     node->prev = NULL;
