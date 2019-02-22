@@ -5,13 +5,13 @@
 # include <string.h>
 # include <strings.h>
 # include <stdlib.h>
+# include <time.h>
 
 # define ABS(x) ((x < 0) ? -x : x)
 # define VIRTUAL_SIZE 1024
 
 typedef struct	s_memlist
 {
-	size_t	number;
 	void	*addr;
 	size_t	is_free;
 	size_t	size;

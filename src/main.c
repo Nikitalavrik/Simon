@@ -20,8 +20,13 @@ int     main()
 	char		*data;
 	void		*addr;
 
+    init_mem(VIRTUAL_SIZE);
+    srand(time(NULL));
 	if (!testing(1000))
 		printf("ERROR\n");
+	else
+		printf("ALL GOOD!!!\n");
+	
 	// MENU
 	// init_mem(VIRTUAL_SIZE);
 	// while (1)

@@ -15,7 +15,7 @@ void	*mem_alloc(size_t size)
         g_mem = create_node(size, 1);
         return (g_mem->addr);
     }
-    if (ret = find_free(size))
+    if ((ret = find_free(size)))
     {
         ret->addr = malloc(size * sizeof(void));
         ret->is_free = 0;

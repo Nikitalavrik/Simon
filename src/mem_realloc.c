@@ -7,10 +7,8 @@ void			*mem_realloc(void *addr, size_t size)
 
     if(!(old_node = find_node(addr)) || !size)
         return (NULL);
-    
-    new_node = create_node(size, 1);
+    new_node = mem_alloc(size);
     new_node->addr = memmove(new_node->addr, old_node->addr,
                             old_node->size > size ? size : old_node->size);
-    replace_node(old_node, new_node);
     return (new_node->addr);
 }

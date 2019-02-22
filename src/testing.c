@@ -2,15 +2,26 @@
 
 int     testing(size_t count)
 {
+    t_memlist *iterator;
     void    *check;
     size_t  sum;
+    size_t  size;
+    size_t  c_mem_blocks;
 
-    init_mem(1024);
-    check = mem_alloc(10);
-    sum  = (size_t)check;
-    while(count--){
+    c_mem_blocks = 10;
+    size = 100;
+    while (c_mem_blocks--)
+        mem_alloc(size);
+    while(count--)
+    {
+        iterator = g_mem;
+        c_mem_blocks = rand() % 10;
+        while (c_mem_blocks--)
+            iterator = iterator->next;
+        check = iterator->addr;
+        sum  = (size_t)check;
         mem_free(check);
-        check = mem_alloc(10);
+        check = mem_alloc(size);
         if (sum != (size_t)check)
         {
             printf("sum   = %lu\n", sum);
@@ -18,12 +29,6 @@ int     testing(size_t count)
             mem_dump();
             return (0);
         }
-
     }
-    // check = calloc(10, sizeof(void));
-    // sum = (size_t)check;
-    // free(check);
-    // check = calloc(10, sizeof(void));
-    // printf("sum = %lu\ncheck = %lu\n", sum, (size_t)check);
     return (1);
 }
