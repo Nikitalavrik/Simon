@@ -1,5 +1,5 @@
 # Simon
 
-Uses:
-  make  
+Uses:  
+   make  
   ./allocator
