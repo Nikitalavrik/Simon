@@ -19,9 +19,9 @@ void	*mem_alloc(size_t size)
     {
         ret->addr = malloc(size * sizeof(void));
         ret->is_free = 0;
-        if (ABS(ret->size - size))
+        if (ret->size - size)
         {
-            new_node = create_node(ABS(ret->size - size), 0);
+            new_node = create_node(ret->size - size, 0);
             if (ret->next)
                 ret->next->prev = new_node;
             new_node->prev = ret;

@@ -71,8 +71,11 @@ void        replace_node(t_memlist *old_node, t_memlist *new_node)
     new_node->prev = old_node->prev;
     if (old_node->prev)
         old_node->prev->next = new_node;
+    else
+        g_mem = new_node;
     if (old_node->next)
         old_node->next->prev = new_node;
+ 
     free_node(old_node);
 }
 
